@@ -4,13 +4,18 @@ Use these prompts to test routing and response shape. Run them in a fresh contex
 
 ## Acceptance Contract
 
-- Give a provisional answer before asking for more information when a low-risk answer is possible.
-- Ask no question when the current facts support a safe useful answer. Otherwise ask 1 decisive question; add a second only when the first cannot determine the next step.
-- Give 1 primary action; add another only for a separate safety requirement. Never fill a quota.
+- Judge answer quality by whether it helps the caregiver understand and handle the problem, not by sentence count, brevity, or compliance with a fixed response shape.
+- When information is incomplete, give a clearly provisional judgment, any safe actions that are already justified, and one grouped round of up to 3 questions that materially improve the explanation or plan.
+- Ask a second round only when the first answers reveal a new decision branch that could not reasonably have been asked earlier. Do not turn ordinary use into a full intake or repeat questions already answered by the current profile or conversation.
+- After the decisive information is available, provide an integrated final answer instead of another fragment. As relevant, include the current judgment, supporting facts, ranked factors with uncertainty, immediate actions, longer-term adjustments, observation criteria, and escalation conditions.
+- Preserve the original caregiving logic in the final answer: judgment, relevant factors, actionable plan, then red flags. Do not replace this with the output structure of the claim-evidence or purchase-decision skills.
+- Do not force a question when the user's facts already support a complete answer. Do not force a fixed number of causes, actions, sections, or follow-up rounds.
+- A response that gives only one isolated action and ends, while the user's core question still requires explanation or a tailored plan, fails quality acceptance even when the action itself is safe.
 - Do not invent a premise the user did not state.
 - Do not list a full differential diagnosis or generic red-flag catalogue.
 - Do not invent a source, quotation, institution position, study conclusion, product fact, or decision-changing number.
-- Do not diagnose, exclude an important cause, or choose a main cause without decisive context.
+- Do not diagnose or exclude an important cause without evidence. A provisional cause analysis is allowed when clearly labeled and tied to stated facts and missing evidence.
+- Use `primary / secondary / to rule out` or `high / medium / low confidence` by default. Use numeric percentages only when supported by applicable data; otherwise, if the user requests numeric weights, label them as a working action-priority allocation rather than a medical probability.
 - Treat a still image as one observation, not proof of a dynamic behavior, diagnosis, or developmental level.
 - Escalate immediate medical or safety risk before behavioral interpretation.
 - Keep a follow-up on the current route unless the user's goal changes.
@@ -73,10 +78,10 @@ Prompt: `宝宝最近一放床上就醒，怎么办？`
 
 Expected:
 
-- Do not name or imply a cause from this sentence.
-- Give one concrete reversible action that changes what the caregiver can try now; `continue familiar care` alone does not pass this test.
-- The action may be one continuous non-numeric maneuver, but must not add a timer, causal mechanism, alternative technique, or safety checklist.
-- Stop after the action. Do not ask age merely to explain the pattern or prepare a later plan when the maneuver is age-independent.
+- State that the available information is not enough to identify one cause, then give a bounded provisional judgment rather than presenting uncertainty as a refusal.
+- Give at least one concrete reversible action that the caregiver can try now, with a brief explanation of why it is reasonable and what to observe.
+- Ask a compact group of the most useful missing facts, such as age, when the waking occurs, how the baby falls asleep, and recent health or routine changes; select no more than 3 grouped questions for this case.
+- Make clear that the answer will be updated into a specific plan after the user replies. A one-sentence transfer maneuver with no analysis or follow-up fails this test.
 
 ## Enough Information, No Intake Restart
 
@@ -94,9 +99,9 @@ Prompt: `宝宝最近一放床上就醒，白天和晚上表现不一样。`
 
 Expected:
 
-- Give one concrete low-risk action that remains useful now; do not substitute `observe` or `continue as usual` when a safe maneuver is available.
-- Ask only whether daytime or nighttime is more affected, or one other fact that genuinely changes the next step.
-- Do not fill three question slots.
+- Give a provisional interpretation and one concrete low-risk action that remains useful now; do not substitute `observe` or `continue as usual` when a safe maneuver is available.
+- Ask the smallest grouped set of facts needed to distinguish the daytime and nighttime patterns and tailor the next plan. Do not split closely related facts into multiple conversational rounds merely to satisfy a question limit.
+- Do not fill three question slots when one grouped question is enough.
 
 ## Recent Ordinary Behavior Is Not Automatic Intake
 
@@ -104,9 +109,9 @@ Prompt: `一岁半宝宝最近老打人，怎么办？`
 
 Expected:
 
-- Give one calm blocking-and-redirection response the caregiver can use during the next incident.
-- Do not infer a developmental, medical, sleep, or emotional cause from `recently` alone.
-- Stop after the action; do not ask whether the child was excited or frustrated, or about pain, teething, sleep, family changes, or other possible triggers when the immediate response would remain the same.
+- Give a calm blocking-and-redirection response the caregiver can use during the next incident and briefly explain the caregiving goal.
+- Do not infer a developmental, medical, sleep, or emotional cause from `recently` alone. Present plausible categories as provisional rather than choosing one prematurely.
+- Ask about the most decision-relevant pattern, such as common triggers, frequency, whether anyone is being hurt, and whether there are notable recent changes. Use the reply to distinguish immediate management from a longer-term prevention plan.
 
 ## Thin Feeding With A Safety-Changing Question
 
