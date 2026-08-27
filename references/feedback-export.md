@@ -20,7 +20,7 @@ After the user selects a category, or when the initial request already includes 
 
 ```text
 BABY-CARE-ADVISOR FEEDBACK
-skill_version: v0.1.1-beta.1
+skill_version: v0.2.0-beta.1
 platform_model: [reliably visible or user-supplied value; otherwise 未提供]
 feedback_type: [selected category or the user's own label]
 user_prompt:
