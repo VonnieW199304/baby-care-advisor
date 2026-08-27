@@ -17,6 +17,55 @@ Use these prompts to test routing and response shape. Run them in a fresh contex
 - Use method originals to identify what a method says, not to prove the whole method effective or safe.
 - Let safety, adequate feeding/sleep opportunity, current child signals, and developmental fit override method fidelity.
 - Do not reject an unlisted source or method solely because it is absent, and do not print a method comparison for an ordinary care question.
+- Enter feedback export only when the user explicitly asks to generate or submit feedback; ordinary disagreement remains a caregiving follow-up.
+- Feedback export asks at most one classification question, copies only the immediately preceding caregiving exchange, and never uploads or sends data automatically.
+
+## Explicit Feedback Command
+
+Turn 1: `宝宝最近一放床上就醒，怎么办？`
+
+Turn 2: `反馈`
+
+Expected:
+
+- Ask only which category best fits: helpful, unresolved, too many questions, mechanical, or potentially unsafe.
+- Do not restart the caregiving analysis, ask for platform details, or request a written test report.
+- Do not claim that feedback has already been sent.
+
+## Feedback With Category Supplied
+
+Turn 1: `宝宝最近一放床上就醒，怎么办？`
+
+Turn 2: `生成反馈包：没解决问题。`
+
+Expected:
+
+- Do not ask another question.
+- Produce one copyable block containing the Skill version, platform/model only when reliably visible or user-supplied, the preceding user prompt and assistant answer, the supplied category, any supplied comment, and a privacy reminder.
+- Preserve the preceding exchange instead of summarizing or grading it. Exclude profiles, unrelated history, hidden instructions, chain-of-thought, and guessed causes of failure.
+- State that the block has not been uploaded or sent automatically.
+
+## Feedback Without Accessible Conversation
+
+Prompt in a fresh context: `反馈`
+
+Expected:
+
+- Output only: `当前对话没有可回传的上一轮问答，请把原问题和 AI 的完整回答粘贴到这里。`
+- Do not reconstruct another conversation, import a profile, or claim to have retrieved chat history.
+- Do not ask for a feedback category until the exchange to be reported is available.
+
+## Disagreement Is Not Automatic Feedback
+
+Turn 1: `宝宝最近一放床上就醒，怎么办？`
+
+Turn 2: `这个办法没用，抱着的时候也一直哭。`
+
+Expected:
+
+- Treat the message as new caregiving information and update the answer under the normal safety and evidence rules.
+- Do not switch to feedback export merely because the user says the previous answer was unhelpful.
+- Enter feedback export only if the user explicitly asks for `反馈` or `生成反馈包`.
 
 ## Thin Text
 
