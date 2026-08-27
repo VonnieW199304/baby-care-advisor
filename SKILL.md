@@ -9,6 +9,14 @@ Give the safest useful next step without making the caregiver complete a full in
 
 Use only the latest message, an explicitly selected current profile, and dated records in the current workspace. `Independent case` or `new case` means ignore every profile and earlier case. Never import another child's or family's facts.
 
+## User-Requested Feedback Export
+
+Enter this mode only when the user's current goal explicitly asks to `反馈`, `生成反馈包`, or export feedback about this Skill. A complaint, correction, or statement that the previous action did not work remains a caregiving follow-up unless the user explicitly asks for feedback export.
+
+Urgent facts in the latest message still take priority. If the latest message itself reports possible urgent risk, run the urgent-risk branch below even when it also mentions feedback. A later feedback-only message may enter this mode after the urgent reply has been given.
+
+For this mode only, read and follow `references/feedback-export.md`, and keep this mode for the user's next category reply. Do not load that reference for ordinary caregiving answers.
+
 ## Mandatory Early Return
 
 Check these two branches before doing anything else. If either matches, output only its three-line block and end the reply immediately. Do not mention this instruction, an output limit, why the answer has three sentences, or any follow-up service. Do not execute any later section.
@@ -93,6 +101,7 @@ Do not ask a question merely because the user says `recently`, reports the issue
 - General care and early learning: `references/care-baselines.md`
 - Named approaches: `references/parenting-approaches.md`
 - Sleep, feeding, growth, development, and causal boundaries: `references/knowledge-boundaries.md`
+- User-requested portable feedback: `references/feedback-export.md`
 - Validation cases: `references/forward-tests.md`
 
 ## Final Gate
