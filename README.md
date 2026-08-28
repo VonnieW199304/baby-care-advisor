@@ -27,6 +27,14 @@
 
 因此公测期间推荐使用能力较强的模型，并在每个新对话中显式选择或调用 Skill。涉及急症、药物、剂量、疫苗、疾病、发育倒退或明显异常时，不能只依赖 AI 回答。
 
+## ChatGPT 等主流 AI 的朋友测试包
+
+不支持安装 Agent Skill 时，可以下载 [ChatGPT Project Instructions 朋友测试包](https://github.com/VonnieW199304/baby-care-advisor/raw/refs/heads/main/chatgpt-project-pack/chatgpt-parenting-assistant.zip)，按包内说明将对应方向的 Instructions 粘贴到 ChatGPT Project、智能体或其他支持自定义指令的 AI 中。
+
+这个下载链接长期保持不变，并始终指向当前最新版。已经粘贴到 AI 中的旧指令不会自动更新；版本变化后，需要重新下载并替换一次。当前版本与校验值见 [`chatgpt-project-pack/VERSION.md`](chatgpt-project-pack/VERSION.md)。
+
+这个包覆盖宝宝行为与发育、观点鉴别与科学分析、消费决策三个方向，与下方可安装的 `baby-care-advisor` Agent Skill 是两种不同的使用方式。
+
 ## 安装
 
 ### Codex
